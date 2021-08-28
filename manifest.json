@@ -9,6 +9,7 @@
   "dependencies": {},
   "builders": {
     "node": "6.x",
+    "express": "^4.17.1",
     "docs": "0.x"
   },
   "scripts": {

@@ -7,7 +7,7 @@ const Newsletter = require('../Models/Newsletter')
 tls.DEFAULT_MIN_VERSION = 'TLSv1';
 
 router.post('/newsletter', async  (req, res, next) => {
-  //console.log(req.body);
+  console.log(req.body);
   const { emailNewsletter } = req.body
   //console.log(emailNewsletter);
 
@@ -27,7 +27,7 @@ router.post('/newsletter', async  (req, res, next) => {
     }
     console.log(emailNewsletter);
     //const usuarioNewsletterCriado = await Newsletter.create({ emailNewsletter })
-    //return res.json({ emailNewsletter, id: usuarioNewsletterCriado.id  })
+    return res.json({ emailNewsletter, id: usuarioNewsletterCriado.id  })
   }
   catch(err) {
     console.log(err)

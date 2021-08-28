@@ -16,7 +16,9 @@ router.post('/newsletter', async  (req, res, next) => {
   }
   const regex = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
   try {
-    const emailExistente = await Newsletter.findOne({ emailNewsletter })
+    //const emailExistente = await Newsletter.findOne({ emailNewsletter })
+    const { data } = await axios.get('https://c2rcbzh5tj.execute-api.us-east-2.amazonaws.com/items', { emailNewsletter })
+    console.log(data);
     if(emailExistente) {
       return res.json({ message: 'Já existe um usuário cadastrado com esse email!'})
     }
@@ -24,8 +26,8 @@ router.post('/newsletter', async  (req, res, next) => {
       return res.json({ message: 'O e-mail informado é inválido!' })
     }
     console.log(emailNewsletter);
-    const usuarioNewsletterCriado = await Newsletter.create({ emailNewsletter })
-    return res.json({ emailNewsletter, id: usuarioNewsletterCriado.id  })
+    //const usuarioNewsletterCriado = await Newsletter.create({ emailNewsletter })
+    //return res.json({ emailNewsletter, id: usuarioNewsletterCriado.id  })
   }
   catch(err) {
     console.log(err)

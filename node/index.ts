@@ -3,6 +3,7 @@ import { method, Service } from '@vtex/api'
 
 import { Clients } from './clients'
 import { status } from './middlewares/status'
+import { statusPost } from './middlewares/statusPost'
 
 const TIMEOUT_MS = 800
 
@@ -26,5 +27,8 @@ export default new Service({
     status: method({
       GET: [status],
     }),
+    statusOnly: method({
+      POST:[statusPost]
+    })
   },
 })

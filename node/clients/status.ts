@@ -3,7 +3,7 @@ import { ExternalClient } from '@vtex/api'
 
 export default class Status extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
-    super('http://httpstat.us', context, options)
+    super('https://c2rcbzh5tj.execute-api.us-east-2.amazonaws.com/items', context, options)
   }
 
   public async getStatus(status: number): Promise<string> {

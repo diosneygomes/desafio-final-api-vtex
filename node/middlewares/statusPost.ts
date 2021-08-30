@@ -16,7 +16,7 @@ export async function statusPost(ctx: Context, next: () => Promise<any>)
     const emailCliente = teste
     // inicia iintegração com AWS
     if(!emailCliente) {
-      return 'O campo email deve ser informado obrigatoriamente !'
+      console.log('O campo email deve ser informado obrigatoriamente !')
     }
     //const regex = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
     try {
@@ -24,10 +24,10 @@ export async function statusPost(ctx: Context, next: () => Promise<any>)
       const { data } = await axios.get(`https://c2rcbzh5tj.execute-api.us-east-2.amazonaws.com/items/$emailCliente`)
       console.log(data);
       if(data) {
-        return 'Já existe um usuário cadastrado com esse email!'
+        console.log('Já existe um usuário cadastrado com esse email!')
         //Atualiza campo tipoCliente
       } else {
-        return 'Primeiro Pedido'
+        console.log('Primeiro Pedido')
         //Insere cadastro na AWS
       }
       //if(!regex.test(emailCliente)) {
@@ -38,11 +38,9 @@ export async function statusPost(ctx: Context, next: () => Promise<any>)
     }
     catch(err) {
       console.log(err)
-      return 'Não foi possível realizar o cadastro do usuário!'
+      console.log('Não foi possível realizar o cadastro do usuário!')
     }
     // final integração com aws
-
-
     ctx.body = 'OK'
     ctx.status = 200
     ctx.set('Cache-Control', 'no-cache no-store')

@@ -52,12 +52,13 @@
         "path": "*"
       }
     },
-    { "name": "outbound-access",
+    {
+      "name": "outbound-access",
       "attrs": {
         "host": "URL_API",
         "path": "*"
-        }
-       }
+      }
+    }
   ],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

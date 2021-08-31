@@ -1,12 +1,12 @@
 import { json } from 'co-body'
 import axios from 'axios'
-import tls from 'tls';
+//import tls from 'tls';
 //const tls = require('tls');
 
 
 export async function statusPost(ctx: Context, next: () => Promise<any>)
 {
-  tls.DEFAULT_MIN_VERSION = 'TLSv1.2';
+  //tls.DEFAULT_MIN_VERSION = 'TLSv1.2';
   try
   {
     const body = await json(ctx.req)
@@ -26,7 +26,7 @@ export async function statusPost(ctx: Context, next: () => Promise<any>)
     //const regex = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
     try {
       //const emailExistente = await Newsletter.findOne({ emailNewsletter })
-      const { data } = await axios.get('https://c2rcbzh5tj.execute-api.us-east-2.amazonaws.com/items/1')
+      const { data } = await axios.get(`https://c2rcbzh5tj.execute-api.us-east-2.amazonaws.com/items/$emailCliente`)
       console.log(data);
       if(data) {
         console.log('Já existe um usuário cadastrado com esse email!')

@@ -58,6 +58,13 @@
         "host": "URL_API",
         "path": "*"
       }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "c2rcbzh5tj.execute-api.us-east-2.amazonaws.com",
+        "path": "*"
+      }
     }
   ],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"

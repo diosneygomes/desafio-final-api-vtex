@@ -26,7 +26,7 @@ export async function statusPost(ctx: Context, next: () => Promise<any>)
     //const regex = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
     try {
       //const emailExistente = await Newsletter.findOne({ emailNewsletter })
-      const { data } = await axios.get(`https://c2rcbzh5tj.execute-api.us-east-2.amazonaws.com/items/$emailCliente`)
+      const { data } = await axios.get('https://c2rcbzh5tj.execute-api.us-east-2.amazonaws.com/items/1')
       console.log(data);
       if(data) {
         console.log('Já existe um usuário cadastrado com esse email!')
